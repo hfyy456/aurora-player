@@ -1,0 +1,37 @@
+#root {
+  height: 100vh;
+  width: 100vw;
+  --bottomBar: 11%;
+  --leftBar: 35%;
+  --colorful: linear-gradient(
+    to right,
+    #eea2a2 0%,
+    #bbc1bf 19%,
+    #57c6e1 42%,
+    #b49fda 79%,
+    #7ac5d8 100%
+  );
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.main-page {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  @include art(0, 0);
+  backdrop-filter: blur(20px);
+}
+.App {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.top-drag-area {
+  -webkit-app-region: drag;
+  width: 100vw;
+  @include art(0, 0);
+  height: 3vh;
+}

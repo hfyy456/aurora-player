@@ -1,0 +1,39 @@
+@mixin alb($left, $bottom) {
+  position: absolute;
+  left: $left;
+  bottom: $bottom;
+}
+@mixin arb($right, $bottom) {
+  position: absolute;
+  right: $right;
+  bottom: $bottom;
+}
+@mixin alt($left, $top) {
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+@mixin art($right, $top) {
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+%abc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:root {
+}
+@mixin text-ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

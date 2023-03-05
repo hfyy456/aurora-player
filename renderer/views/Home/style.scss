@@ -1,0 +1,48 @@
+.home-container {
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  @extend %flex;
+  .p-container {
+    flex: 1;
+    position: relative;
+    height: 100%;
+  }
+  .p_expand {
+    transition: all 0.3s;
+    width: 100vw;
+    position: absolute;
+  }
+}
+
+.exp-btn {
+  z-index: 3;
+  left: 0;
+  position: absolute;
+}
+.mini-btn {
+  right: 55px;
+}
+.cls-btn {
+  right: 15px;
+}
+.top-btn {
+  position: fixed;
+  top: 10px;
+  z-index: 999;
+  width: 28px;
+  height: 28px;
+  color: #111827;
+  background-color: #ffffff;
+  @extend %flex;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 50%;
+  cursor: pointer;
+  svg {
+    font-size: 20px;
+  }
+  &:hover {
+    background-color: #f9fafb;
+  }
+}

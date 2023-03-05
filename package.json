@@ -1,0 +1,51 @@
+{
+  "name": "aurora-player",
+  "productName": "Aurora Player",
+  "version": "beta0.01",
+  "description": "local music player",
+  "main": ".vite/build/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Sirius",
+    "email": "540363975@qq.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
+    "electron": "23.1.2",
+    "electron-forge-plugin-vite": "^0.3.6"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "ali-oss": "^6.17.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "framer-motion": "^10.0.1",
+    "mongoose": "^7.0.0",
+    "music-metadata": "7.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2",
+    "sass": "^1.58.3",
+    "sass-resources-loader": "^2.2.5",
+    "uuid": "^9.0.0"
+  }
+}

@@ -1,0 +1,137 @@
+.left-bar {
+  width: var(--leftBar);
+  height: calc(90vh);
+  border-radius: 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  border-radius: 30px;
+  background-image: linear-gradient(to right, #dfe9f3 0%, white 100%);
+  box-shadow: 5px 5px 20px #d2d2d2, -5px -5px 20px #ffffff;
+  padding: 15px 0;
+  margin-right: auto;
+  margin-left: 1%;
+  position: relative;
+  z-index: 3;
+}
+
+.play-list {
+  height: 76vh;
+  overflow-y: auto;
+  .import-btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 60%;
+  }
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: #fafafa;
+}
+::-webkit-scrollbar-thumb {
+  width: 0px;
+  background-color: #e4e7ed;
+}
+.play-item {
+  padding: 0 10px;
+  height: 30px;
+  display: flex;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  background-color: transparent;
+  position: relative;
+  .item-id {
+    width: 12%;
+  }
+  .item-name {
+    width: 48%;
+    @include text-ell();
+  }
+  .item-author {
+    width: 25%;
+    @include text-ell();
+  }
+  .item-time {
+    width: 15%;
+  }
+}
+.play-item_hover {
+  cursor: pointer;
+  font-size: 12px;
+  &:hover {
+    background-image: linear-gradient(
+      to right,
+      #f3e7e9 0%,
+      #e3eeff 99%,
+      #e3eeff 100%
+    );
+  }
+}
+.btm-actions {
+  @include alb(0, 5%);
+  width: 100%;
+}
+.slide-in-left {
+  animation: slide-in-left 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-out-left {
+  animation: slide-out-left 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@keyframes slide-out-left {
+  0% {
+    left: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+.left-btm {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+.container-input {
+  position: relative;
+  margin-right: auto;
+}
+
+.input {
+  height: 24px;
+  width: 30px;
+  padding: 10px 0px 10px 30px;
+  border-radius: 9999px;
+  border: solid 1px #333;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+  font-size: 14px;
+  &:hover {
+    opacity: 1;
+    width: 150px;
+  }
+  &:focus {
+    opacity: 1;
+    width: 150px;
+  }
+}
+
+.container-input svg {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translate(0, -50%);
+}

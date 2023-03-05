@@ -1,0 +1,64 @@
+.bottom-bar {
+  height: var(--bottomBar);
+  width: calc(var(--leftBar) + 20%);
+  @include alb(50%, 5%);
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+  margin: auto;
+  box-shadow: 5px 5px 20px #d2d2d2, -5px -5px 20px #ffffff;
+  transition: all 0.3s linear;
+  z-index: 3;
+  box-sizing: content-box;
+  .timeupdate {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.play-actions {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  @extend %flex;
+  z-index: 2;
+  position: relative;
+  .main-icon {
+    @extend %flex;
+    background-color: #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin: 0 8px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.progress-bar {
+  z-index: 3;
+  width: 94%;
+  height: 5px;
+  @include alt(50%, 18px);
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #ddd;
+  transition: all 0.4s;
+  &:hover {
+    height: 10px;
+    cursor: pointer;
+  }
+  .progress-inner {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    background-image:var(--colorful)
+  }
+}

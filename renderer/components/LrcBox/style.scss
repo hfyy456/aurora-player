@@ -1,0 +1,37 @@
+.lrc-box {
+  @include alb(50%, 20%);
+  transform: translateX(-50%);
+  width: 60vw;
+  text-align: center;
+  height: 10vh;
+  font-size: 22px;
+  .line-text {
+    width: fit-content;
+    max-width: 100%;
+    color: transparent;
+    margin: auto;
+    line-height: 10vh;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transprant;
+    font-weight: bold;
+    transition: all 0.5s;
+    background-image: linear-gradient(
+      to right,
+      #eea2a2 0%,
+      #bbc1bf 19%,
+      #57c6e1 42%,
+      #b49fda 79%,
+      #7ac5d8 100%
+    );
+    animation:bgLinear both;
+  }
+}
+@keyframes bgLinear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
