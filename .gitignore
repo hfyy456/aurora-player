@@ -89,3 +89,4 @@ out/
 
 main/server/serverConfig.js
 .vite/
+.vite
