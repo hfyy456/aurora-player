@@ -1,7 +1,7 @@
 {
   "name": "aurora-player",
-  "productName": "Aurora Player",
-  "version": "beta0.01",
+  "productName": "AuroraPlayer",
+  "version": "0.0.1-alpha.1",
   "description": "local music player",
   "main": ".vite/build/main.js",
   "scripts": {

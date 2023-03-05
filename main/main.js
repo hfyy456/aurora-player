@@ -37,8 +37,10 @@ const createWindow = () => {
     : path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`);
   // and load the index.html of the app.
   mainWindow.loadURL(winURL);
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
 
   Player(mainWindow, winURL);
 };
