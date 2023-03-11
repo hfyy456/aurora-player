@@ -8,7 +8,7 @@ import { parseData } from "@/utils/message";
 import { useEffect, useState } from "react";
 
 export default function LeftBar(props) {
-  const { playList, setHide, hideList, loading, setLoading, setPlayList } =
+  const { playList, setHide, immersiveMode, loading, setLoading, setPlayList } =
     props;
   const [filterList, setFilterList] = useState(null);
   const [keyword, setKeyword] = useState("");
@@ -55,7 +55,7 @@ export default function LeftBar(props) {
   };
   return (
     <div
-      className={`left-bar ${hideList ? "slide-out-left" : "slide-in-left"}`}
+      className={`left-bar ${immersiveMode ? "slide-out-left" : "slide-in-left"}`}
     >
       <div className="play-item">
         <div className="item-id">序号</div>

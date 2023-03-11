@@ -47,6 +47,13 @@ export default function Player(props) {
         setVolume = audio.volume * 100;
       }
     });
+    ipcRenderer.on("setProgress", (event, args) => {
+      console.log(args);
+      if (audio) {
+        console.log(audioState.info);
+        audio.currentTime = parseFloat(args) * audio.duration;
+      }
+    });
   };
 
   useEffect(() => {
@@ -106,6 +113,9 @@ export default function Player(props) {
         currentTime: audio.currentTime,
         playing: false,
       });
+      audio.onended = () => {
+        ipcRenderer.send("nextPlay");
+      };
     };
   };
   return (

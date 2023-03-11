@@ -5,6 +5,7 @@
   text-align: center;
   height: 10vh;
   font-size: 22px;
+  z-index: 9;
   .line-text {
     width: fit-content;
     max-width: 100%;
@@ -23,8 +24,12 @@
       #b49fda 79%,
       #7ac5d8 100%
     );
-    animation:bgLinear both;
+    animation: bgLinear both;
   }
+}
+.lrc-box_immersive {
+  font-size: 24px;
+  @include alb(50%, 17%);
 }
 @keyframes bgLinear {
   0% {
@@ -34,4 +39,3 @@
     opacity: 1;
   }
 }
-

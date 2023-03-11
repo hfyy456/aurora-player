@@ -1,6 +1,6 @@
 .play-card {
   position: relative;
-  width:50vw;
+  width: 50vw;
   height: 60vh;
   background: #ddd;
   display: flex;
@@ -11,6 +11,7 @@
   box-shadow: 5px 5px 20px #d2d2d2, -5px -5px 20px #ffffff;
   margin: auto;
   margin-top: 60px;
+  transition: width 0.3s;
   z-index: 3;
   &::after {
     content: "";
@@ -42,6 +43,34 @@
     transition: all 0.2s linear;
   }
 }
+.play-card_immersive {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 0;
+  transition: all 0.3s;
+  &::after {
+    inset: 0;
+  }
+  .player_bg {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+  }
+  .al-cover {
+    top: 38%;
+    width: 250px;
+    height: 250px;
+    canvas {
+      width: 500px;
+      height: 500px;
+    }
+  }
+  .ms-info {
+    @include alb(0, 26%);
+  }
+}
 @keyframes rotBGimg {
   0% {
     transform: rotate(0deg);
@@ -67,6 +96,7 @@
   width: 200px;
   height: 200px;
   text-align: center;
+
   .pic {
     border-radius: 50%;
     width: 100%;

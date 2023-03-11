@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const { ipcRenderer } = require("electron");
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faClose, faExpand, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { parseData } from "@/utils/message";
 import Player from "@/components/Player";
 import PlayCard from "@/components/PlayCard";
@@ -17,7 +17,7 @@ export default function Home() {
     info: {},
     volume: 80,
   });
-  const [hideList, setHideList] = useState(false);
+  const [immersiveMode, setImmersiveMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const startGame = () => {
@@ -50,10 +50,19 @@ export default function Home() {
     <div className="home-container">
       <div className="cls-btn top-btn" onClick={closeWindow}>
         <FontAwesomeIcon icon={faClose} />
-      </div>{" "}
+      </div>
       <div className="mini-btn top-btn" onClick={minimizeWindow}>
         <FontAwesomeIcon icon={faMinus} />
       </div>
+      <div
+        className="mode-btn top-btn"
+        onClick={() => {
+          setImmersiveMode(!immersiveMode);
+        }}
+      >
+        <FontAwesomeIcon icon={faExpand} />
+      </div>
+
       <div className="exp-btn" onClick={() => setHide(false)}>
         展开
       </div>
@@ -62,14 +71,18 @@ export default function Home() {
         setLoading={setLoading}
         playList={playList}
         setPlayList={setPlayList}
-        hideList={hideList}
+        immersiveMode={immersiveMode}
         setHide={setHide}
       />
       <Player audioState={audioState} setAudioState={setAudioState} />
-      <div className={`p-container ${hideList ? "p_expand" : ""}`}>
-        <PlayCard audioState={audioState} />
-        <BottomBar audioState={audioState} setAudioState={setAudioState} />
-        <LrcBox audioState={audioState}></LrcBox>
+      <div className={`p-container ${immersiveMode ? "p_expand" : ""}`}>
+        <PlayCard immersiveMode={immersiveMode} audioState={audioState} />
+        <BottomBar
+          immersiveMode={immersiveMode}
+          audioState={audioState}
+          setAudioState={setAudioState}
+        />
+        <LrcBox immersiveMode={immersiveMode} audioState={audioState}></LrcBox>
       </div>
       {/* <button onClick={openFileSystem}>打开目录</button> */}
     </div>

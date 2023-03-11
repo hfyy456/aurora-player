@@ -59,6 +59,23 @@
     border-radius: 20px;
     height: 100%;
     width: 100%;
-    background-image:var(--colorful)
+    background-image: var(--colorful);
+  }
+}
+.bottom-bar_immersive {
+  background-color: transparent;
+  box-shadow: none;
+  .main-icon {
+    background-color: transparent;
+    svg {
+      color: #ffffff;
+    }
+  }
+
+  .progress-bar {
+    background-color: transparent;
+    &:hover {
+      background-color: #fff;
+    }
   }
 }

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const { ipcRenderer } = require("electron");
 import "./style.scss";
 export default function BottomBar(props) {
-  const { audioState, setAudioState } = props;
+  const { audioState, setAudioState, immersiveMode } = props;
   const startPlay = () => {
     ipcRenderer.send("startPlay");
   };
@@ -19,10 +19,22 @@ export default function BottomBar(props) {
   const nextPlay = () => {
     ipcRenderer.send("nextPlay");
   };
-
+  const setProgress = (e) => {
+    console.log(e);
+    const node = document.getElementById("prg");
+    let bound = node.getBoundingClientRect();
+    console.log(bound.x, e.clientX, bound);
+    let total = bound.width;
+    let left = e.clientX - bound.x;
+    let percent = left / total;
+    console.log(percent);
+    ipcRenderer.send("setProgress", percent);
+  };
   return (
-    <div className="bottom-bar">
-      <div className="progress-bar">
+    <div
+      className={`bottom-bar bottom-bar_${immersiveMode ? "immersive" : ""}`}
+    >
+      <div id="prg" className="progress-bar" onClick={setProgress}>
         <div
           className="progress-inner"
           style={{
@@ -51,7 +63,7 @@ export default function BottomBar(props) {
           <FontAwesomeIcon icon={faForward} onClick={() => nextPlay()} />
         </div>
       </div>
-      <VolumeController audioState={audioState} />
+      <VolumeController audioState={audioState} immersiveMode={immersiveMode} />
     </div>
   );
 }

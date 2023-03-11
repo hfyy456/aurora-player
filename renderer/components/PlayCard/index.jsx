@@ -4,7 +4,7 @@ import { parseData } from "@/utils/message";
 import Image from "@/assets/cm_bg.jpg";
 import "./style.scss";
 export default function PlayCard(props) {
-  const { audioState, setAudioState } = props;
+  const { audioState, setAudioState,immersiveMode } = props;
   const [meta, setMeta] = useState(null);
   const [metaCover, setMetaCover] = useState("");
   const getTime = (ts) => {
@@ -27,7 +27,7 @@ export default function PlayCard(props) {
     <div
       className={`play-card ${`play-card_${
         audioState.playing ? "playing" : ""
-      }`}`}
+      } play-card_${immersiveMode?'immersive':''}`}`}
     >
       <div
         className="player_bg"

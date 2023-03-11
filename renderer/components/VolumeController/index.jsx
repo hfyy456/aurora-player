@@ -15,7 +15,7 @@ import { useEffect } from "react";
 const { ipcRenderer } = require("electron");
 
 export default function VolumeController(props) {
-  const { audioState } = props;
+  const { audioState, immersiveMode } = props;
   useEffect(() => {
     console.log(audioState.volume, "volume");
   }, []);
@@ -26,7 +26,11 @@ export default function VolumeController(props) {
     <>
       <Popover closeOnBlur={true}>
         <PopoverTrigger>
-          <div className="volume-controller">
+          <div
+            className={`volume-controller volume-controller_${
+              immersiveMode ? "immersive" : ""
+            }`}
+          >
             <FontAwesomeIcon icon={faVolumeLow} />
           </div>
         </PopoverTrigger>

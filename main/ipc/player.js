@@ -22,7 +22,7 @@ export default function player(window, winURL) {
     if (curMusic) {
       music = curMusic;
     } else {
-      music = JSON.stringify(getList[0]);
+      music = JSON.stringify(await getList[0]);
     }
     switchMusic(event, music);
   });
@@ -32,8 +32,11 @@ export default function player(window, winURL) {
   ipcMain.on("pausePlay", async (event, args) => {
     event.sender.send("pausePlay");
   });
+  ipcMain.on("setProgress", async (event, args) => {
+    event.sender.send("setProgress", args);
+  });
   ipcMain.on("nextPlay", async (event, args) => {
-    !curList && getList();
+    !curList && (await getList());
     let curId = curMusic.id;
     let id = 0;
     if (curId >= maxId) {
@@ -64,8 +67,11 @@ async function switchMusic(event, ms) {
   event.sender.send("lrcReader", formatData({ lrc: lrc }));
   event.sender.send("getMediaInfo", formatData({ meta: metadata.common }));
 }
-function getList() {
-  curList = JSON.parse(store.get("curList"));
+async function getList() {
+  let config = app.config.getConfig();
+
+  let res = await app.config.getPlayList(config.curPlayList);
+  curList = res.list;
   for (const item of curList) {
     maxId = Math.max(item.id, maxId);
   }

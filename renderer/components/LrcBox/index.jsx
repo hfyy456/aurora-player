@@ -8,7 +8,7 @@ export default function LrcBox(props) {
   const [line, setLine] = useState("");
   const [swl, setSwl] = useState(true);
   const [delay, setDelay] = useState(0);
-  const { audioState } = props;
+  const { audioState, immersiveMode } = props;
 
   useEffect(() => {
     ipcRenderer.on("lrcReader", (e, args) => {
@@ -54,9 +54,12 @@ export default function LrcBox(props) {
     }
   }, [audioState]);
   return (
-    <div className="lrc-box">
+    <div className={`lrc-box lrc-box_${immersiveMode?'immersive':''}`}>
       {swl ? (
-        <div className="line-text" style={{ animationDuration: `${delay / 2}s` }}>
+        <div
+          className="line-text"
+          style={{ animationDuration: `${delay / 2}s` }}
+        >
           {lrc ? line : "未找到歌词"}
         </div>
       ) : (
